@@ -4,7 +4,7 @@ def quicksort(values):
     #Exit condition for the recursion
     if len(values) <= 1:
         return values
-    pivot = values[len(values)-1]
+    pivot = values[-1]
     greater, lesser = [],[]
     #Split the array around the pivot
     for i in values :
