@@ -23,5 +23,6 @@ while values[index] != target:
     index = (low + high)//2
     window.highlights = [(target,(255,0,0)), (low,(0,0,255)), (high,(0,0,255))]
     window.update()
-    print("reached")
     time.sleep(1)
+time.sleep(3)
+window.quit()
