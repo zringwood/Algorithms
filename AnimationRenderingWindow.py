@@ -33,8 +33,11 @@ class ArrayWindow():
             array[randindex] = sav
             if animate:
                 self.update()
+    def quit(self):
+        pygame.display.quit()
 
 window = ArrayWindow((400,400),"Test",list(range(400)))
 window.highlights = [(random.randint(0,400),(255,0,0)),(random.randint(0,400),(255,0,0)),(random.randint(0,400),(255,0,0))]
 #window.shuffle(True)
 window.update()
+window.quit()
