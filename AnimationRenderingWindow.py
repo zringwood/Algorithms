@@ -14,13 +14,15 @@ class ArrayWindow():
         self.update()
     #Draws the array one additional time. 
     def update(self):
+        raster = pygame.Surface(self.size)
         #Clear the screen
-        self.screen.fill((0,0,0))
+        #self.screen.fill((0,0,0))
         #Array of values we're going to draw as lines on the screen.
         for i in self.array :
-            pygame.draw.line(self.screen, (255,255,255), (i,self.size[0]),(i,self.size[0]-self.array[i]))
+            pygame.draw.line(raster, (255,255,255), (i,self.size[0]),(i,self.size[0]-self.array[i]))
         for i in self.highlights :
-            pygame.draw.line(self.screen, i[1], (i[0],self.size[0]),(i[0],self.size[0]-self.array[i[0]]))
+            pygame.draw.line(raster, i[1], (i[0],self.size[0]),(i[0],self.size[0]-self.array[i[0]]))
+        pygame.Surface.blit(self.screen,raster,(0,0))
         pygame.display.update()
 
     #helper method, shuffles the array
@@ -36,8 +38,8 @@ class ArrayWindow():
     def quit(self):
         pygame.display.quit()
 
-window = ArrayWindow((400,400),"Test",list(range(400)))
-window.highlights = [(random.randint(0,400),(255,0,0)),(random.randint(0,400),(255,0,0)),(random.randint(0,400),(255,0,0))]
-#window.shuffle(True)
-window.update()
-window.quit()
+##window = ArrayWindow((400,400),"Test",list(range(400)))
+##window.highlights = [(random.randint(0,400),(255,0,0)),(random.randint(0,400),(255,0,0)),(random.randint(0,400),(255,0,0))]
+##window.shuffle(True)
+##window.update()
+##window.quit()
